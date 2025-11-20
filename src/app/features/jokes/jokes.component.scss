@@ -1,0 +1,345 @@
+.saloon-shell {
+  min-height: 80vh;
+  margin: 2rem auto;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem 1.4rem 1.2rem;
+  gap: 1.6rem;
+  background: #050409;
+  color: var(--text-main);
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+
+  @media (min-width: 768px) {
+    padding: 2rem 3rem 1.8rem;
+  }
+}
+
+.saloon-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1.4rem;
+  background: #241405;
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.7),
+    0 16px 32px rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.badge-face {
+  width: 130%;
+  height: 130%;
+  object-fit: cover;
+  transform: translateY(4%);
+}
+
+.brand-copy h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-copy p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+/* TOP BAR: search input + search button + deals button, same line */
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Search bar: brown + rusty shadow */
+.search-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #241405;
+  border-radius: 999px;
+  padding: 0.6rem 0.9rem 0.6rem 2.6rem;
+  box-shadow: 0px 0px 20px 0px rgba(115, 67, 23, 0.85);
+
+  input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    width: 100%;
+
+    &::placeholder {
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+  }
+}
+
+.search-emoji {
+  position: absolute;
+  left: 0.9rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Shared brown button style for Search + Deals */
+.top-btn {
+  border-radius: 999px;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  font-family: inherit;
+  box-shadow: 0 16px 36px rgba(115, 67, 23, 0.9);
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+
+  &:hover {
+    filter: brightness(1.06);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 10px 24px rgba(115, 67, 23, 1);
+  }
+}
+
+/* Different fills but same theme */
+.search-btn {
+  background: #241405;
+  box-shadow: 0px 0px 20px 0px rgba(115, 67, 23, 0.85);
+  color: #fef3c7;
+}
+
+.deals-btn {
+  background: #241405;
+  box-shadow: 0px 0px 20px 0px rgba(115, 67, 23, 0.85);
+  color: #fef3c7;
+
+  .reload-icon {
+    font-size: 1.1rem;
+  }
+}
+
+/* Category chips: wrap lines, same brown + shadow */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding-bottom: 0.1rem;
+}
+
+.filter-chip {
+  flex: 0 0 auto;
+  min-width: 3.3rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.9rem;
+  border: none;
+  background: #241405;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(115, 67, 23, 0.9);
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+    background 0.12s ease-out, color 0.12s ease-out;
+
+  .chip-dot {
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 999px;
+    background: #f59e0b;
+    opacity: 0.9;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    color: var(--text-main);
+    box-shadow: 0 16px 34px rgba(115, 67, 23, 1);
+  }
+
+  &.active {
+    background: #3b220b;
+    color: #fef3c7;
+
+    .chip-dot {
+      background: #ea580c;
+    }
+  }
+}
+
+.chip-label {
+  white-space: nowrap;
+}
+
+.alert {
+  border-radius: 0.9rem;
+  padding: 0.8rem 1rem;
+  background: rgba(248, 113, 113, 0.18);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.9);
+  color: #fee2e2;
+  font-size: 0.9rem;
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 3rem 0;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 999px;
+  border: 3px solid rgba(55, 65, 81, 0.7);
+  border-top-color: #f59e0b;
+  animation: spin 0.85s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Cards in same brown + rusty shadow */
+.joke-card {
+  padding: 1.1rem 1rem 1rem;
+  border-radius: 1.1rem;
+  background: #241405;
+  box-shadow: 0px 0px 20px 0px rgba(115, 67, 23, 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0.4rem;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.card-pill {
+  font-size: 0.68rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(250, 204, 21, 0.17);
+  color: #fef9c3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.card-id {
+  font-size: 0.78rem;
+  color: rgba(248, 250, 252, 0.7);
+}
+
+.card-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #fef3c7;
+}
+
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tag {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(15, 23, 42, 0.95);
+  color: #fde68a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.9);
+}
+
+.saloon-footer {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding-top: 0.7rem;
+}

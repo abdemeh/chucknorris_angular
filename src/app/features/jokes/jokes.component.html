@@ -1,0 +1,107 @@
+<div class="saloon-shell">
+  <header class="saloon-header">
+    <div class="brand">
+      <div class="badge">
+        <img
+          class="badge-face"
+          src="https://m.media-amazon.com/images/I/51zh-j-6gmL._AC_UF350,350_QL80_.jpg"
+          alt="Chuck Norris"
+        />
+      </div>
+      <div class="brand-copy">
+        <h1>Chuck Norris Saloon</h1>
+        <p>Where every punchline wears cowboy boots.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="controls">
+      <!-- TOP BAR: search input + search button + deals button on same line -->
+      <form class="top-bar" (submit)="onSubmitSearch($event)">
+        <div class="search-wrap">
+          <input
+            type="text"
+            name="searchTerm"
+            [(ngModel)]="searchTerm"
+            placeholder="Search a joke about code, cowboys, coffee..."
+          />
+        </div>
+
+        <button type="submit" class="top-btn search-btn">
+          <span *ngIf="!searching()">Search</span>
+          <span *ngIf="searching()">Searching...</span>
+        </button>
+
+        <button type="button" class="top-btn deals-btn" (click)="onReload()">
+          <span>Deal new jokes</span>
+        </button>
+      </form>
+
+      <div class="filters">
+        <button
+          type="button"
+          class="filter-chip"
+          [class.active]="activeCategory() === 'all'"
+          (click)="onCategoryClick('all')"
+        >
+          <span class="chip-dot"></span>
+          <span class="chip-label">All</span>
+        </button>
+
+        <button
+          type="button"
+          class="filter-chip"
+          *ngFor="let cat of categories()"
+          [class.active]="activeCategory() === cat"
+          (click)="onCategoryClick(cat)"
+        >
+          <span class="chip-dot"></span>
+          <span class="chip-label">{{ cat }}</span>
+        </button>
+      </div>
+    </section>
+
+    <section *ngIf="error()" class="alert">
+      {{ error() }}
+    </section>
+
+    <section *ngIf="loading()" class="state state-loading">
+      <div class="spinner"></div>
+      <p>Saddling up fresh jokes...</p>
+    </section>
+
+    <section *ngIf="!loading() && !visibleJokes().length" class="state">
+      <p>No jokes found. Chuck is giving you the silent stare.</p>
+    </section>
+
+    <section *ngIf="!loading() && visibleJokes().length" class="grid">
+      <article
+        class="joke-card"
+        *ngFor="let joke of visibleJokes(); trackBy: trackById"
+      >
+        <div class="card-top">
+          <span class="card-pill">Wanted: Laughs</span>
+          <span class="card-id">#{{ joke.id | slice: 0:6 }}</span>
+        </div>
+
+        <p class="card-text">
+          "{{ joke.value }}"
+        </p>
+
+        <div class="card-bottom">
+          <div class="tags" *ngIf="joke.categories?.length">
+            <span class="tag" *ngFor="let c of joke.categories">
+              {{ c }}
+            </span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="saloon-footer">
+    <span>Powered by chucknorris.io</span>
+    <span>Tip: never bluff against Chuck.</span>
+  </footer>
+</div>
