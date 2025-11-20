@@ -1,4 +1,4 @@
-# 🤠 Chuck Norris Saloon
+# CHUNCK NORRIS SALOON
 
 A Western-themed Angular 19.2.19 app that fetches Chuck Norris jokes from the public Chuck Norris API and displays them as rustic brown cards with a saloon aesthetic.
 
@@ -217,4 +217,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Enjoy the jokes, partner! 🤠**
+**Enjoy the jokes, partner!**
