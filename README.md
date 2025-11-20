@@ -85,7 +85,7 @@ https://api.chucknorris.io/jokes
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url> chuck-jokes
+git clone https://github.com/abdemeh/chucknorris_angular.git chuck-jokes
 cd chuck-jokes
 ```
 
