@@ -138,12 +138,6 @@ Build artifacts are output to the `dist/` folder. Serve them with any static fil
 }
 ```
 
-Run any script with:
-
-```bash
-npm run <script-name>
-```
-
 ---
 
 ## 🏗️ How It Works
